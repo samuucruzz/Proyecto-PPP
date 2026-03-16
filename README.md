@@ -222,11 +222,3 @@ Proyecto académico desarrollado por:
 **Samuel**
 **Simone**
 - Alumnos del CIFP Villa de Agüimes, 2º del CFGS ASIR
-
----
-
-<div align="center">
-
-⭐ Proyecto desarrollado con fines educativos
-
-</div>
