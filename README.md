@@ -1,140 +1,172 @@
 # Proyecto-PPP
- Proyecto realizado por: Samuel Cruz López y Simone Monzani Estevez.
- Alumnado del CIFP Villa de Agüimes.
- CFGS 2º ASIR
+<div align="center">
 
-# Streaming IPTVilladeaguimes
+# 📺 Streaming IPTVilladeaguimes
 
-Sistema de **streaming IPTV interno** diseñado para facilitar la gestión y reproducción de vídeos informativos en las televisiones del centro educativo sin necesidad de utilizar dispositivos USB.
+### Sistema de Streaming IPTV interno para distribución de contenido informativo
 
-Este proyecto implementa una infraestructura basada en **Ubuntu Server, alta disponibilidad y monitorización**, permitiendo administrar los contenidos de forma centralizada, eficiente y profesional.
+![Ubuntu](https://img.shields.io/badge/Ubuntu-Server-E95420?style=for-the-badge\&logo=ubuntu\&logoColor=white)
+![Jellyfin](https://img.shields.io/badge/Jellyfin-Media%20Server-00A4DC?style=for-the-badge)
+![Nagios](https://img.shields.io/badge/Nagios-Monitoring-000000?style=for-the-badge)
+![Keepalived](https://img.shields.io/badge/Keepalived-High%20Availability-blue?style=for-the-badge)
+![IPTV](https://img.shields.io/badge/IPTV-Streaming-purple?style=for-the-badge)
+
+Sistema diseñado para **gestionar y reproducir vídeos informativos en las televisiones del centro educativo mediante streaming**, eliminando la necesidad de utilizar dispositivos USB.
+
+</div>
 
 ---
 
-# Descripción del proyecto
+# 📖 Descripción del proyecto
 
-Actualmente, la actualización de los vídeos informativos del centro requiere un proceso manual que implica desplazarse físicamente hasta las televisiones con un pendrive para copiar los archivos y reiniciar la reproducción.
+Actualmente, la actualización de los vídeos informativos del centro requiere un proceso manual que implica:
 
-Este método presenta varios inconvenientes:
+* Desplazarse físicamente hasta las televisiones.
+* Utilizar un **pendrive** para copiar los vídeos.
+* Reiniciar manualmente la reproducción.
 
-* Pérdida de tiempo.
-* Dependencia de dispositivos USB.
-* Gestión poco eficiente del contenido.
-* Falta de automatización.
+Este método genera varios problemas:
+
+* ⏳ Pérdida de tiempo
+* 🔌 Dependencia de dispositivos USB
+* ⚙️ Falta de automatización
+* 📂 Gestión poco eficiente del contenido
 
 El proyecto **Streaming IPTVilladeaguimes** propone una solución basada en **streaming IPTV interno**, permitiendo gestionar los vídeos desde un servidor centralizado y reproducirlos automáticamente en las televisiones del centro.
 
 ---
 
-# Objetivos
+# 🎯 Objetivos
 
 ## Objetivo principal
 
-Mejorar la gestión y distribución de los vídeos informativos mediante un sistema de streaming interno accesible desde la red del centro.
+Implementar un sistema de **streaming interno centralizado** que permita distribuir vídeos informativos de forma rápida, sencilla y eficiente.
 
 ## Objetivos específicos
 
 * Eliminar el uso de **pendrives** para actualizar contenido.
 * Centralizar la **gestión de vídeos**.
-* Permitir una **actualización rápida y sencilla** del contenido.
-* Garantizar **alta disponibilidad** del servicio.
+* Permitir una **actualización rápida del contenido**.
+* Garantizar **alta disponibilidad del servicio**.
 * Implementar **monitorización del sistema** para detectar fallos.
 
 ---
 
-# Arquitectura del sistema
+# 🏗 Arquitectura del sistema
 
 El sistema está compuesto por **tres máquinas virtuales con Ubuntu Server**, cada una con una función específica dentro de la infraestructura.
 
-| Máquina        | Función                         | Servicios          |
-| -------------- | ------------------------------- | ------------------ |
-| MASTER         | Servidor principal de streaming | Jellyfin, ErsatzTV |
-| BACKUP         | Servidor de alta disponibilidad | Keepalived         |
-| MONITORIZACIÓN | Supervisión del sistema         | Nagios             |
+| Máquina           | Función                         | Servicios          |
+| ----------------- | ------------------------------- | ------------------ |
+| 🖥 MASTER         | Servidor principal de streaming | Jellyfin, ErsatzTV |
+| 🗄 BACKUP         | Servidor de alta disponibilidad | Keepalived         |
+| 📊 MONITORIZACIÓN | Supervisión del sistema         | Nagios             |
+
+Esta arquitectura permite disponer de **servicio continuo y supervisado** dentro de la red del centro.
 
 ---
 
-# Infraestructura
+# 🖥 Infraestructura
 
 ## Servidor MASTER
 
-El servidor **MASTER** es el encargado de ejecutar los servicios principales del sistema de streaming.
+El servidor **MASTER** ejecuta los servicios principales responsables del streaming.
 
-Servicios instalados:
+**Servicios instalados**
 
 * **Jellyfin**
   Servidor multimedia encargado de gestionar la biblioteca de vídeos.
 
 * **ErsatzTV**
-  Herramienta que permite generar **canales IPTV virtuales** a partir de los contenidos multimedia almacenados.
+  Herramienta que permite generar **canales IPTV virtuales** a partir del contenido multimedia.
 
-Este servidor distribuye el contenido mediante streaming a las televisiones conectadas a la red del centro.
+Este servidor distribuye los vídeos mediante **streaming dentro de la red local** hacia las televisiones del centro.
 
 ---
 
-## Servidor BACKUP
+## 🗄 Servidor BACKUP
 
 El servidor **BACKUP** garantiza la continuidad del servicio en caso de fallo del servidor principal.
 
-Servicio instalado:
+**Servicio instalado**
 
 * **Keepalived**
 
-Este servicio permite implementar un sistema de **failover**, de forma que si el servidor MASTER deja de funcionar, el servidor BACKUP puede asumir automáticamente el servicio.
+Este sistema implementa un mecanismo de **failover automático**, permitiendo que el servidor backup asuma el control si el servidor principal deja de funcionar.
 
-Esto proporciona **alta disponibilidad del sistema** y evita interrupciones en la reproducción de los vídeos.
+Esto asegura una **alta disponibilidad del sistema de streaming**.
 
 ---
 
-## Servidor de monitorización
+## 📊 Servidor de monitorización
 
 El servidor de **MONITORIZACIÓN** supervisa el estado de los servidores del sistema.
 
-Servicio instalado:
+**Servicio instalado**
 
 * **Nagios**
 
-Nagios permite:
+Funciones principales:
 
 * Monitorizar el estado de los servidores.
-* Detectar si un servicio o máquina se encuentra **UP o DOWN**.
-* Identificar rápidamente fallos en la infraestructura.
+* Detectar si un sistema está **UP o DOWN**.
+* Identificar posibles fallos en la infraestructura.
 
 ---
 
-# Almacenamiento de contenidos
+# 💾 Almacenamiento de contenidos
 
-Los vídeos utilizados para el sistema de streaming **no se almacenan directamente en los servidores**, sino en un **NAS (Network Attached Storage)** conectado a la red del centro.
+Los vídeos utilizados para el sistema de streaming se almacenan en un **NAS (Network Attached Storage)** conectado a la red del centro.
 
 Esto permite:
 
-* Centralizar el almacenamiento de los vídeos.
-* Facilitar la gestión del contenido.
-* Aumentar la capacidad de almacenamiento.
-* Separar el almacenamiento del procesamiento del streaming.
+* 📂 Centralizar el almacenamiento de contenidos.
+* 📈 Aumentar la capacidad de almacenamiento.
+* 🔄 Facilitar la actualización de vídeos.
+* ⚙️ Separar almacenamiento y procesamiento.
 
-Los servidores acceden al NAS para obtener los archivos multimedia que posteriormente se distribuyen mediante streaming.
-
----
-
-# Tecnologías utilizadas
-
-* Ubuntu Server
-* Jellyfin
-* ErsatzTV
-* Keepalived
-* Nagios
-* NAS (Network Attached Storage)
-* Virtualización mediante máquinas virtuales
+Los servidores acceden al NAS para obtener los vídeos que posteriormente se distribuyen mediante streaming.
 
 ---
 
-# Resultados esperados
+# 🧰 Tecnologías utilizadas
+
+| Tecnología             | Función                             |
+| ---------------------- | ----------------------------------- |
+| **Ubuntu Server**      | Sistema operativo de los servidores |
+| **Jellyfin**           | Gestión de contenido multimedia     |
+| **ErsatzTV**           | Generación de canales IPTV          |
+| **Keepalived**         | Alta disponibilidad (Failover)      |
+| **Nagios**             | Monitorización de servidores        |
+| **NAS**                | Almacenamiento centralizado         |
+| **Máquinas Virtuales** | Infraestructura del proyecto        |
+
+---
+
+# 🚀 Resultados esperados
 
 Con la implementación de este sistema se espera:
 
 * Simplificar la gestión de los vídeos informativos.
-* Reducir el tiempo necesario para actualizar contenidos.
+* Reducir el tiempo necesario para actualizar contenido.
 * Eliminar la dependencia de dispositivos USB.
 * Mejorar la eficiencia del proceso de distribución de vídeos.
-* Disponer de una infraestructura más **moderna, automatizada y profesional**.
+* Disponer de una infraestructura **moderna, automatizada y profesional**.
+
+---
+
+# 👨‍💻 Autores
+
+Proyecto académico desarrollado por:
+
+**Samuel**
+**Simone**
+- Alumnos del CIFP Villa de Agüimes, 2º del CFGS ASIR
+
+---
+
+<div align="center">
+
+⭐ Proyecto desarrollado con fines educativos
+
+</div>
