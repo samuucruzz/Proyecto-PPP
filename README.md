@@ -1,4 +1,4 @@
-# Proyecto-PPP
+# Proyecto-IPTVilladeAgüimes
 <div align="center">
 
 <img src="assets/logo_iptv.jpeg" width="420">
