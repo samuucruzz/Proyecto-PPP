@@ -1,7 +1,7 @@
 # Proyecto-PPP
  Proyecto realizado por: Samuel Cruz López y Simone Monzani Estevez.
  Alumnado del CIFP Villa de Agüimes.
- CGFS 2º ASIR
+ CFGS 2º ASIR
 
 # Streaming IPTVilladeaguimes
 
