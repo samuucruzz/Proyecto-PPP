@@ -1,6 +1,8 @@
 # Proyecto-PPP
 <div align="center">
 
+<img src="img/logo_iptv.jpeg" width="420">
+
 # 📺 Streaming IPTVilladeaguimes
 
 ### Sistema de Streaming IPTV interno para distribución de contenido informativo
@@ -20,7 +22,7 @@ Infraestructura de streaming diseñada para **automatizar la reproducción de v�
 **Sistema Operativo**
 
 🐧
-**Ubuntu Server**
+Ubuntu Server
 
 </td>
 
@@ -29,7 +31,7 @@ Infraestructura de streaming diseñada para **automatizar la reproducción de v�
 **Servidor Multimedia**
 
 🎬
-**Jellyfin**
+Jellyfin
 
 </td>
 
@@ -38,7 +40,7 @@ Infraestructura de streaming diseñada para **automatizar la reproducción de v�
 **Generador IPTV**
 
 📡
-**ErsatzTV**
+ErsatzTV
 
 </td>
 
@@ -47,7 +49,7 @@ Infraestructura de streaming diseñada para **automatizar la reproducción de v�
 **Alta Disponibilidad**
 
 🔁
-**Keepalived**
+Keepalived
 
 </td>
 
@@ -56,7 +58,7 @@ Infraestructura de streaming diseñada para **automatizar la reproducción de v�
 **Monitorización**
 
 📊
-**Nagios**
+Nagios
 
 </td>
 
@@ -65,7 +67,7 @@ Infraestructura de streaming diseñada para **automatizar la reproducción de v�
 **Almacenamiento**
 
 💾
-**NAS**
+NAS
 
 </td>
 
@@ -97,11 +99,11 @@ Implementar un sistema de **streaming interno centralizado** que permita distrib
 
 ## Objetivos específicos
 
-* Eliminar el uso de **pendrives** para actualizar contenido.
-* Centralizar la **gestión de vídeos**.
-* Permitir una **actualización rápida del contenido**.
-* Garantizar **alta disponibilidad del servicio**.
-* Implementar **monitorización del sistema** para detectar fallos.
+* Eliminar el uso de **pendrives** para actualizar contenido
+* Centralizar la **gestión de vídeos**
+* Permitir una **actualización rápida del contenido**
+* Garantizar **alta disponibilidad del servicio**
+* Implementar **monitorización del sistema** para detectar fallos
 
 ---
 
@@ -193,8 +195,8 @@ Los servidores acceden al NAS para obtener los archivos multimedia que posterior
 | Ubuntu Server      | Sistema operativo de los servidores |
 | Jellyfin           | Gestión de contenido multimedia     |
 | ErsatzTV           | Generación de canales IPTV          |
-| Keepalived         | Alta disponibilidad (Failover)      |
-| Nagios             | Monitorización de servidores        |
+| Keepalived         | Alta disponibilidad                 |
+| Nagios             | Monitorización                      |
 | NAS                | Almacenamiento centralizado         |
 | Máquinas virtuales | Infraestructura del proyecto        |
 
@@ -204,11 +206,11 @@ Los servidores acceden al NAS para obtener los archivos multimedia que posterior
 
 Con la implementación de este sistema se espera:
 
-* Simplificar la gestión de los vídeos informativos.
-* Reducir el tiempo necesario para actualizar contenidos.
-* Eliminar la dependencia de dispositivos USB.
-* Mejorar la eficiencia del proceso de distribución de vídeos.
-* Disponer de una infraestructura **más moderna, automatizada y profesional**.
+* Simplificar la gestión de los vídeos informativos
+* Reducir el tiempo necesario para actualizar contenidos
+* Eliminar la dependencia de dispositivos USB
+* Mejorar la eficiencia del proceso de distribución de vídeos
+* Disponer de una infraestructura **más moderna, automatizada y profesional**
 
 ---
 
