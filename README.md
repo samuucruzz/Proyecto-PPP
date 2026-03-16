@@ -1,7 +1,7 @@
 # Proyecto-PPP
 <div align="center">
 
-<img src="img/logo_iptv.jpeg" width="420">
+<img src="assets/logo_iptv.jpeg" width="420">
 
 # 📺 Streaming IPTVilladeaguimes
 
