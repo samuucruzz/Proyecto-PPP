@@ -1,1 +1,28 @@
+services:
 
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    restart: unless-stopped
+    ports:
+      - "8096:8096"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Atlantic/Canary
+    volumes:
+      - ~/mediaserver/jellyfin/config:/config
+      - ~/mediaserver/jellyfin/cache:/cache
+      - /srv/media:/media:ro
+
+  ersatztv:
+    image: jasongdove/ersatztv:latest
+    container_name: ersatztv
+    restart: unless-stopped
+    ports:
+      - "8409:8409"
+    environment:
+      - TZ=Atlantic/Canary
+    volumes:
+      - ~/mediaserver/ersatztv/config:/root/.local/share/ersatztv
+      - /srv/media:/media:ro
