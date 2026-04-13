@@ -219,6 +219,6 @@ Con la implementación de este sistema se espera:
 
 Proyecto académico desarrollado por:
 
-**Samuel**
-**Simone**
+**Samuel Cruz Lopez y**
+**Simone Monzani Estevez**
 - Alumnos del CIFP Villa de Agüimes, 2º del CFGS ASIR
