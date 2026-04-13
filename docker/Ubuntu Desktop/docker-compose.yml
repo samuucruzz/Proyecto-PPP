@@ -1,1 +1,16 @@
-
+#SOLO NAGIOS
+services:
+  nagios:
+    image: jasonrivers/nagios:latest
+    container_name: nagios_server
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nagios/etc:/opt/nagios/etc
+      - ./nagios/var:/opt/nagios/var
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - NAGIOSADMIN_USER=nagiosadmin
+      - NAGIOSADMIN_PASS=Qwerty1234
+      - NAGIOS_TIMEZONE=Atlantic/Canary
+    restart: always
