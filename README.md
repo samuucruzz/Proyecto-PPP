@@ -1,18 +1,37 @@
 > [!NOTE]
 > Apartado de keepalived actualizado en el Google Docs (el antiguo está en el fichero_proyecto)
 
-# Proyecto-IPTVilladeAgüimes
 <div align="center">
 
-<img src="assets/logo_iptv.jpeg" width="420">
+# Proyecto-IPTVilladeAgüimes
 
-# 📺 Streaming IPTVilladeaguimes
+<img src="assets/logo_iptv.jpeg" width="420" alt="Logo IPTVilladeAgüimes">
+
+# 📺 Streaming IPTVilladeAgüimes
 
 ### Sistema de Streaming IPTV interno para distribución de contenido informativo
 
 Infraestructura de streaming diseñada para **automatizar la reproducción de vídeos informativos en las televisiones del centro**, eliminando la necesidad de utilizar dispositivos USB y mejorando la gestión del contenido multimedia.
 
+---
+
+[![Estado](https://img.shields.io/badge/status-activo-success)](https://github.com/samuucruzz/Proyecto-PPP)
+[![Ubuntu](https://img.shields.io/badge/Ubuntu-Server%2024.04%20LTS-E95420)](https://ubuntu.com/)
+[![Jellyfin](https://img.shields.io/badge/Jellyfin-10.11.6-00A4DC)](https://jellyfin.org/)
+[![ErsatzTV](https://img.shields.io/badge/ErsatzTV-v26.3.0-4F9EFF)](https://ersatztv.org/)
+[![Docker](https://img.shields.io/badge/Docker-Compose-2496ED)](https://www.docker.com/)
+[![Licencia](https://img.shields.io/badge/license-open%20source-brightgreen)](https://opensource.org/)
+
 </div>
+
+---
+
+## ✨ Vista rápida
+
+- Emisión continua 24/7 en red local. :contentReference[oaicite:1]{index=1}
+- Bucle automático del vídeo 1 al 10 y vuelta a empezar. 
+- Sin pendrives, sin desplazamientos y sin coste de licencias. 
+- Stack basado en software libre. 
 
 ---
 
@@ -24,7 +43,7 @@ Infraestructura de streaming diseñada para **automatizar la reproducción de v�
 
 **Sistema Operativo**
 
-🐧
+🐧  
 Ubuntu Server
 
 </td>
@@ -33,7 +52,7 @@ Ubuntu Server
 
 **Servidor Multimedia**
 
-🎬
+🎬  
 Jellyfin
 
 </td>
@@ -42,7 +61,7 @@ Jellyfin
 
 **Generador IPTV**
 
-📡
+📡  
 ErsatzTV
 
 </td>
@@ -51,7 +70,7 @@ ErsatzTV
 
 **Alta Disponibilidad**
 
-🔁
+🔁  
 Keepalived
 
 </td>
@@ -60,7 +79,7 @@ Keepalived
 
 **Monitorización**
 
-📊
+📊  
 Nagios
 
 </td>
@@ -69,7 +88,7 @@ Nagios
 
 **Almacenamiento**
 
-💾
+💾  
 NAS
 
 </td>
@@ -90,7 +109,9 @@ Este procedimiento presenta varios inconvenientes:
 * ⚙️ Falta de automatización del proceso
 * 📂 Gestión poco eficiente del contenido multimedia
 
-El proyecto **Streaming IPTVilladeaguimes** propone una solución basada en **streaming IPTV interno**, permitiendo gestionar los vídeos desde un servidor centralizado y reproducirlos automáticamente en las televisiones del centro.
+El proyecto **Streaming IPTVilladeAgüimes** propone una solución basada en **streaming IPTV interno**, permitiendo gestionar los vídeos desde un servidor centralizado y reproducirlos automáticamente en las televisiones del centro.
+
+Además, el sistema está pensado como una emisión continua de tipo canal de televisión, con reproducción en bucle, accesible dentro de la red local y preparada para funcionar sin intervención constante. 
 
 ---
 
@@ -142,6 +163,8 @@ Herramienta que permite generar **canales IPTV virtuales** a partir de los conte
 
 Este servidor distribuye los vídeos mediante **streaming dentro de la red local** hacia las televisiones del centro.
 
+El proyecto usa el flujo **NAS → NFS → ErsatzTV → lista M3U / TS → Jellyfin → Chromecast**, que convierte los vídeos almacenados en un canal continuo de TV. 
+
 ---
 
 ## 🗄 Servidor BACKUP
@@ -189,6 +212,28 @@ El uso de un NAS permite:
 
 Los servidores acceden al NAS para obtener los archivos multimedia que posteriormente se distribuyen mediante streaming.
 
+El montaje se realiza por **NFS**, y el servidor trata la carpeta compartida como si fuera un directorio local. En la web del proyecto aparece como una pieza clave del flujo de reproducción. 
+
+---
+
+# 🌐 Red del sistema
+
+El proyecto trabaja en la red **172.29.172.0/24**. Las máquinas principales usan estas direcciones:
+
+- NAS: `172.29.172.250`
+- Servidor principal: `172.29.172.115`
+- Servidor backup: `172.29.172.114`
+- Nagios: `172.29.172.110`
+- IP virtual de Keepalived: `172.29.172.200` :contentReference[oaicite:8]{index=8}
+
+### Puertos importantes
+
+- `8096` → Jellyfin
+- `8409` → ErsatzTV
+- `8080` → Nagios
+- `8000` → NAS
+- `2049` → NFS 
+
 ---
 
 # 🧰 Tecnologías utilizadas
@@ -205,6 +250,25 @@ Los servidores acceden al NAS para obtener los archivos multimedia que posterior
 
 ---
 
+# 🔁 Flujo de funcionamiento
+
+## 1. El NAS almacena los vídeos
+Los archivos MP4 se guardan en el NAS y se organizan de forma secuencial. 
+
+## 2. ErsatzTV genera la emisión
+ErsatzTV lee los vídeos y crea un stream continuo en formato MPEG-TS, con reproducción en bucle. 
+
+## 3. Se expone la lista M3U
+El sistema publica una lista M3U para que clientes compatibles puedan consumir el canal. 
+
+## 4. Jellyfin consume el stream
+Jellyfin toma el stream como sintonizador M3U y lo presenta como un canal continuo. :contentReference[oaicite:13]{index=13}
+
+## 5. La TV reproduce el contenido
+El cliente final recibe el canal en la red local y reproduce la emisión sin intervención manual. 
+
+---
+
 # 🚀 Resultados esperados
 
 Con la implementación de este sistema se espera:
@@ -217,6 +281,91 @@ Con la implementación de este sistema se espera:
 
 ---
 
+# ✅ Resultados y validación
+
+El sistema fue probado exhaustivamente y el proyecto refleja un resultado de **7 pruebas realizadas y 7/7 correctas**, con un desarrollo efectivo de alrededor de **48 horas**. :contentReference[oaicite:15]{index=15}
+
+### Puntos fuertes del despliegue
+
+* Emisión continua 24/7
+* Bucle infinito sin intervención
+* Alta disponibilidad con Keepalived
+* Monitorización centralizada con Nagios
+* Stack basado íntegramente en software libre 
+
+---
+
+# 🧪 Pruebas realizadas
+
+| ID | Prueba | Estado |
+| --- | --- | --- |
+| PF01 | Despliegue de la infraestructura base | Correcto |
+| PF02 | Montaje NFS y acceso al NAS | Correcto |
+| PF03 | Emisión de ErsatzTV | Correcto |
+| PF04 | Integración con Jellyfin | Correcto |
+| PF05 | Monitorización con Nagios | Correcto |
+| PF06 | Validación de carga / transcodificación | Parcial en virtualización, correcto en hardware real |
+| PF07 | Alta disponibilidad con Keepalived | Parcial en virtualización, correcto en hardware real |
+
+En la documentación del proyecto se explica que las pruebas parciales se deben a limitaciones de CPU en entornos virtualizados, mientras que en hardware nativo el sistema funciona correctamente. 
+
+---
+
+# 📊 Métricas del proyecto
+
+| Métrica | Valor |
+| --- | --- |
+| Emisión | 24/7 |
+| Bucle | Continuo |
+| Coste de licencias | 0€ |
+| Software libre | 100% |
+| Pruebas | 7 |
+| Resultado | 7/7 |
+| Tiempo efectivo | 48h | 
+
+---
+
+# 🧱 Alta disponibilidad
+
+El sistema está diseñado para funcionar con **failover automático** gracias a **Keepalived**. Si el servidor principal cae, el backup puede asumir la IP virtual y continuar con el servicio.
+
+Esto reduce el impacto de fallos y mantiene la emisión activa con una interrupción mínima. :contentReference[oaicite:19]{index=19}
+
+---
+
+# 📡 Monitorización
+
+**Nagios Core** supervisa el estado del sistema y permite detectar rápidamente incidencias en:
+
+- Jellyfin
+- ErsatzTV
+- IP virtual
+- conectividad general del stack :contentReference[oaicite:20]{index=20}
+
+---
+
+# 🧠 Cómo funciona
+
+El sistema sigue esta lógica:
+
+1. Los vídeos se guardan en el NAS.
+2. El servidor principal los monta por NFS.
+3. ErsatzTV crea la emisión IPTV.
+4. Jellyfin consume el canal.
+5. La televisión reproduce el contenido en bucle. 
+
+---
+
+# 🔧 Mantenimiento y expansión
+
+Para ampliar el proyecto solo hay que:
+
+- añadir más vídeos al NAS
+- hacer un nuevo escaneo de biblioteca en ErsatzTV
+- mantener el sistema monitorizado
+- dejar que el bucle continúe automáticamente :contentReference[oaicite:22]{index=22}
+
+---
 
 # 👨‍💻 Autores
 
@@ -225,3 +374,11 @@ Proyecto académico desarrollado por:
 **Samuel Cruz López y**
 **Simone Monzani Estevez**
 - Alumnos del CIFP Villa de Agüimes, 2º del CFGS ASIR
+
+---
+
+# 📘 Información adicional
+
+- Proyecto desarrollado en el curso 2025–2026.
+- Presentación prevista para el 17 de abril de 2026.
+- Basado en Docker, NFS, IPTV, Jellyfin, ErsatzTV, Keepalived y Nagios. 
