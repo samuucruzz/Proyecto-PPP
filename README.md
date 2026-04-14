@@ -325,8 +325,6 @@ El sistema fue probado exhaustivamente y el proyecto refleja un resultado de **7
 | PF06 | Validación de carga / transcodificación | Correcto |
 | PF07 | Alta disponibilidad con Keepalived | Correcto |
 
-En la documentación del proyecto se explica que las pruebas parciales se deben a limitaciones de CPU en entornos virtualizados, mientras que en hardware nativo el sistema funciona correctamente. 
-
 ---
 
 # 📊 Métricas del proyecto
