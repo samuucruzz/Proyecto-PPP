@@ -1,5 +1,5 @@
-> [!WARNING]
-> Apartado de keepalived actualizado en el Google Docs
+> [!NOTE]
+> Apartado de keepalived actualizado en el Google Docs (el antiguo está en el documento_proyecto)
 
 # Proyecto-IPTVilladeAgüimes
 <div align="center">
