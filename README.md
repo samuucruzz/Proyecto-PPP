@@ -6,7 +6,8 @@
 # Proyecto-IPTVilladeAgüimes
 
 <img src="assets/logo_iptv.jpeg" width="420" alt="Logo IPTVilladeAgüimes">
-## 🎥 Demo del sistema
+
+
 
 ![IPTV Streaming Demo](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2RkN2E2YjZkYzJhN2U0Y2Y5ZTU2ZDY3YzM1Zjk0M2Y4ZTQzZTE5MiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3o7TKsQ8UQn4C5h9W0/giphy.gif)
 
