@@ -32,9 +32,8 @@ graph TD
 A[📂 NAS<br>Almacenamiento de vídeos] -->|NFS| B[🖥 Servidor MASTER]
 
 B --> C[📡 ErsatzTV<br>Generador IPTV]
-C --> D[📺 Stream MPEG-TS / M3U]
 
-D --> E[🎬 Jellyfin<br>Servidor multimedia]
+C --> E[🎬 Jellyfin<br>Servidor multimedia]
 E --> F[📡 Red local]
 
 F --> G[📺 Televisiones / Chromecast]
