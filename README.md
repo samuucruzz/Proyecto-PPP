@@ -242,7 +242,7 @@ El proyecto trabaja en la red **172.29.172.0/24**. Las máquinas principales usa
 - Servidor principal: `172.29.172.115`
 - Servidor backup: `172.29.172.114`
 - Nagios: `172.29.172.110`
-- IP virtual de Keepalived: `172.29.172.200` :contentReference[oaicite:8]{index=8}
+- IP virtual de Keepalived: `172.29.172.200`
 
 ### Puertos importantes
 
@@ -280,7 +280,7 @@ ErsatzTV lee los vídeos y crea un stream continuo en formato MPEG-TS, con repro
 El sistema publica una lista M3U para que clientes compatibles puedan consumir el canal. 
 
 ## 4. Jellyfin consume el stream
-Jellyfin toma el stream como sintonizador M3U y lo presenta como un canal continuo. :contentReference[oaicite:13]{index=13}
+Jellyfin toma el stream como sintonizador M3U y lo presenta como un canal continuo.
 
 ## 5. La TV reproduce el contenido
 El cliente final recibe el canal en la red local y reproduce la emisión sin intervención manual. 
@@ -301,7 +301,7 @@ Con la implementación de este sistema se espera:
 
 # ✅ Resultados y validación
 
-El sistema fue probado exhaustivamente y el proyecto refleja un resultado de **7 pruebas realizadas y 7/7 correctas**, con un desarrollo efectivo de alrededor de **48 horas**. :contentReference[oaicite:15]{index=15}
+El sistema fue probado exhaustivamente y el proyecto refleja un resultado de **7 pruebas realizadas y 7/7 correctas**, con un desarrollo efectivo de alrededor de **48 horas**.
 
 ### Puntos fuertes del despliegue
 
@@ -347,7 +347,7 @@ En la documentación del proyecto se explica que las pruebas parciales se deben 
 
 El sistema está diseñado para funcionar con **failover automático** gracias a **Keepalived**. Si el servidor principal cae, el backup puede asumir la IP virtual y continuar con el servicio.
 
-Esto reduce el impacto de fallos y mantiene la emisión activa con una interrupción mínima. :contentReference[oaicite:19]{index=19}
+Esto reduce el impacto de fallos y mantiene la emisión activa con una interrupción mínima.
 
 ---
 
@@ -358,7 +358,7 @@ Esto reduce el impacto de fallos y mantiene la emisión activa con una interrupc
 - Jellyfin
 - ErsatzTV
 - IP virtual
-- conectividad general del stack :contentReference[oaicite:20]{index=20}
+- conectividad general del stack
 
 ---
 
@@ -381,7 +381,7 @@ Para ampliar el proyecto solo hay que:
 - añadir más vídeos al NAS
 - hacer un nuevo escaneo de biblioteca en ErsatzTV
 - mantener el sistema monitorizado
-- dejar que el bucle continúe automáticamente :contentReference[oaicite:22]{index=22}
+- dejar que el bucle continúe automáticamente
 
 ---
 
