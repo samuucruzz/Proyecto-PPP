@@ -1,5 +1,5 @@
 > [!NOTE]
-> Apartado de keepalived actualizado en el Google Docs (el antiguo está en el fichero_proyecto)
+> Apartado de keepalived actualizado en el Google Docs.
 
 <div align="center">
 
