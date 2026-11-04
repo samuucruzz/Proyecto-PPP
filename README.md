@@ -1,4 +1,4 @@
-> [!NOTA]
+> [!NOTE]
 > Apartado de keepalived actualizado en el Google Docs.
 
 <div align="center">
